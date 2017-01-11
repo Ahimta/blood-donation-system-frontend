@@ -113,6 +113,7 @@ SystemJS.config({
     'path': 'github:jspm/nodelibs-path@0.2.0-alpha',
     'process': 'github:jspm/nodelibs-process@0.2.0-alpha',
     'react': 'npm:react@15.4.2',
+    'react-bootstrap': 'npm:react-bootstrap@0.30.7',
     'react-dom': 'npm:react-dom@15.4.2',
     'stream': 'github:jspm/nodelibs-stream@0.2.0-alpha',
     'string_decoder': 'github:jspm/nodelibs-string_decoder@0.2.0-alpha',
@@ -458,6 +459,47 @@ SystemJS.config({
       'map': {
         'readable-stream': 'npm:readable-stream@2.2.2',
         'pako': 'npm:pako@0.2.9'
+      }
+    },
+    'npm:react-bootstrap@0.30.7': {
+      'map': {
+        'invariant': 'npm:invariant@2.2.2',
+        'classnames': 'npm:classnames@2.2.5',
+        'dom-helpers': 'npm:dom-helpers@2.4.0',
+        'keycode': 'npm:keycode@2.1.8',
+        'react-prop-types': 'npm:react-prop-types@0.4.0',
+        'warning': 'npm:warning@3.0.0',
+        'react-overlays': 'npm:react-overlays@0.6.10',
+        'uncontrollable': 'npm:uncontrollable@4.0.3',
+        'babel-runtime': 'npm:babel-runtime@6.20.0'
+      }
+    },
+    'npm:react-prop-types@0.4.0': {
+      'map': {
+        'warning': 'npm:warning@3.0.0'
+      }
+    },
+    'npm:react-overlays@0.6.10': {
+      'map': {
+        'classnames': 'npm:classnames@2.2.5',
+        'dom-helpers': 'npm:dom-helpers@2.4.0',
+        'react-prop-types': 'npm:react-prop-types@0.4.0',
+        'warning': 'npm:warning@3.0.0'
+      }
+    },
+    'npm:uncontrollable@4.0.3': {
+      'map': {
+        'invariant': 'npm:invariant@2.2.2'
+      }
+    },
+    'npm:invariant@2.2.2': {
+      'map': {
+        'loose-envify': 'npm:loose-envify@1.3.0'
+      }
+    },
+    'npm:warning@3.0.0': {
+      'map': {
+        'loose-envify': 'npm:loose-envify@1.3.0'
       }
     }
   }

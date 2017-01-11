@@ -12,6 +12,7 @@
       "react",
       "react-dom",
       "react-addons-test-utils",
+      "react-bootstrap",
       "jasmine",
       "es6-shim"
     ]
