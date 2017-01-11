@@ -3,9 +3,6 @@ import 'es6-promise';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import {Main} from './app/main.tsx';
+import App from './app/components/App';
 
-ReactDOM.render(
-  <Main/>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
