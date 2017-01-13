@@ -99,22 +99,27 @@
   <!-- endbuild -->
 </body>
 
-<!-- build:js(.tmp) index.js -->
 <script src="https://js.arcgis.com/4.2/"></script>
+
+<!-- build:js(.tmp) index.js -->
 <script src="jspm_packages/system.js"></script>
 <script src="app/vendor/esriSystem.js"></script>
-<script src="jspm.browser.js"></script>
-<script src="jspm.config.js"></script>
 
 <script>
   // array of Esri module names to load and then register with SystemJS
   esriSystem.register([
+    'esri/Graphic',
     'esri/Map',
-    'esri/views/MapView',
-    'esri/widgets/Home/HomeViewModel',
-    'esri/request'
+    'esri/geometry/Point',
+    'esri/geometry/support/webMercatorUtils',
+    'esri/layers/FeatureLayer',
+    'esri/symbols/SimpleMarkerSymbol',
+    'esri/views/MapView'
   ]);
 </script>
+
+<script src="jspm.browser.js"></script>
+<script src="jspm.config.js"></script>
 
 <script>
   System.import('src/index.tsx');

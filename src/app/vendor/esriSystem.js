@@ -59,7 +59,7 @@ var esriSystem;
                     setters: [],
                     execute: function () {
                         //Make the name 'default' here as there is only one export per module so it is technically the default.
-                        //Import using a default import statement - eg: import Map from 'esri/Map' 
+                        //Import using a default import statement - eg: import Map from 'esri/Map'
                         //It's possible this may only compile using 'system' module type in some IDEs using the official typings file though.
                         exp("default", mod);
                     }

@@ -65,10 +65,13 @@
   },
   "jspm": {
     "dependencies": {
+      "classnames": "npm:classnames@^2.2.5",
+      "lodash": "npm:lodash@^4.17.4",
       "react-bootstrap": "npm:react-bootstrap@^0.30.7",
       "axios": "npm:axios@^0.9.1",
       "es6-promise": "npm:es6-promise@^3.1.2",
       "babel-polyfill": "npm:babel-polyfill@^6.7.4",
+      "socket.io-client": "github:socketio/socket.io-client@^1.7.2",
       "ts": "github:frankwallis/plugin-typescript@5.1.2"
     },
     "devDependencies": {
@@ -101,6 +104,9 @@
       "zlib": "github:jspm/nodelibs-zlib@^0.2.0-alpha"
     },
     "overrides": {
+      "github:socketio/socket.io-client@1.7.2": {
+        "main": "dist/socket.io.js"
+      },
       "npm:browserify-zlib@0.1.4": {
         "dependencies": {
           "readable-stream": "^2.0.2",

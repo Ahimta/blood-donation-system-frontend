@@ -1,3 +1,8 @@
 language: node_js
-node_js:
-  - '7.3'
+node_js: '7.3'
+
+install:
+  - npm install
+  - npm run jspm install --yes
+
+script: npm run test

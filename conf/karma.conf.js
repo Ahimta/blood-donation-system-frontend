@@ -19,7 +19,7 @@ module.exports = function (config) {
     ],
     jspm: {
       loadFiles: [
-        conf.path.src('app/**/*.tsx')
+        conf.path.src('app/components/{Footer,Header}.{tsx,spec.tsx}')
       ],
       config: 'jspm.config.js',
       browser: 'jspm.test.js'
