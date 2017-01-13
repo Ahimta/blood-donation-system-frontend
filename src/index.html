@@ -10,6 +10,14 @@
   <link rel="canonical" href="">
   <link rel="icon" type="image/png" href="https://i.imgur.com/UpzlE1N.png">
 
+  <script>
+    const {hostname, protocol} = window.location;
+
+    if (hostname !== 'localhost' && protocol === 'http') {
+      window.location.protocol = 'https';
+    }
+  </script>
+
   <style>
     .loader {
       left: 50%;
