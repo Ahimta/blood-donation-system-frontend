@@ -139,6 +139,14 @@ export function loadMap(elementId: string,
             location: event.mapPoint
           });
         }
+      }).catch(() => {
+          const {latitude, longitude} = event.mapPoint;
+
+          view.popup.open({
+            title: 'New Donation Info',
+            content: getNewDonationForm({ latitude, longitude }),
+            location: event.mapPoint
+          });
       });
     });
 
