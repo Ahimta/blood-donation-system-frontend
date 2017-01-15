@@ -11,7 +11,7 @@ import IDonation from '../types/IDonation';
 type LoadMap = (elementId: string,
   getDonationUpdateForm: ((accessToken: string, id: string) => Promise<any>),
   getDonationInfoTable: ((donation: any) => any),
-  getNewDonationForm: ((point: { latitude: number, longitude: number }) => any)) => (() => void);
+  getNewDonationForm: ((point: { latitude: number, longitude: number }) => any)) => Promise<(() => void)>;
 
 interface IProps {
   readonly deleteDonation: (accessToken: string, id: string) => Promise<any>;
@@ -28,7 +28,7 @@ interface IState {
 };
 
 export default class Body extends React.Component<IProps, IState> {
-  private manageMap: (action: string) => void;
+  private manageMapPromise: Promise<(action: string) => void>;
 
   constructor(props: IProps, context: any) {
     super(props, context);
@@ -38,7 +38,7 @@ export default class Body extends React.Component<IProps, IState> {
   componentDidMount() {
     const {loadMap} = this.props;
 
-    this.manageMap = loadMap('esriMap', this.getDonationUpdateForm.bind(this), this.getDonationInfoTable.bind(this),
+    this.manageMapPromise = loadMap('esriMap', this.getDonationUpdateForm.bind(this), this.getDonationInfoTable.bind(this),
       this.getNewDonationForm.bind(this));
   }
 
@@ -51,7 +51,8 @@ export default class Body extends React.Component<IProps, IState> {
           <p><b>To donate blood</b>, click/tap your location on the map.</p>
           <p><b>To find a donor's info</b>, click/tap an anchor on the map.</p>
         </Alert>
-        <Button bsSize='lg' bsStyle='success' onClick={() => this.manageMap('center-around-user-location')} block>
+        <Button bsSize='lg' bsStyle='success'
+          onClick={() => this.manageMap('center-around-user-location', this.manageMapPromise)} block>
           Center map around my location
         </Button>
       </Grid>
@@ -88,12 +89,18 @@ export default class Body extends React.Component<IProps, IState> {
     </main>);
   }
 
+  private manageMap(action: string, managePromise: Promise<(action: string) => void>) {
+    managePromise.then((manage) => {
+      manage(action);
+    });
+  }
+
   private deleteDonation(accessToken: string, id: string) {
     const {deleteDonation} = this.props;
 
     return deleteDonation(accessToken, id).then(() => {
       this.setState({ alertAccessToken: accessToken, alertId: id, alertType: 'donation-deleted' } as IState);
-      this.manageMap('close-popup');
+      this.manageMap('close-popup', this.manageMapPromise);
     });
   }
 
@@ -104,7 +111,7 @@ export default class Body extends React.Component<IProps, IState> {
       this.setState({ alertAccessToken: accessToken, alertId: _id, alertType: 'donation-added' } as IState);
 
       if (code === 200) {
-        this.manageMap('close-popup');
+        this.manageMap('close-popup', this.manageMapPromise);
       }
       return { code, data };
     });
@@ -145,7 +152,7 @@ export default class Body extends React.Component<IProps, IState> {
 
     return updateDonation(donation).then(({code, data}) => {
       if (code === 200) {
-        this.manageMap('close-popup');
+        this.manageMap('close-popup', this.manageMapPromise);
         this.setState({ alertId: data._id, alertType: 'donation-updated' } as IState);
       }
 

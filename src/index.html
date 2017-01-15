@@ -108,24 +108,34 @@
 </body>
 
 <script src="https://js.arcgis.com/4.2/"></script>
+<script>
+  window.esriPromise = new Promise(function(resolve, reject) {
+    try {
+      require([
+        'esri/Graphic',
+        'esri/Map',
+        'esri/views/MapView',
+        'esri/geometry/Point',
+        'esri/symbols/SimpleMarkerSymbol',
+        'esri/geometry/support/webMercatorUtils'
+      ], function(Graphic, Map, MapView, Point, SimpleMarkerSymbol, webMercatorUtils) {
+        resolve({
+          Graphic: Graphic,
+          Map: Map,
+          MapView: MapView,
+          Point: Point,
+          SimpleMarkerSymbol: SimpleMarkerSymbol,
+          webMercatorUtils: webMercatorUtils
+        });
+      });
+    } catch (e) {
+      reject(e);
+    }
+  });
+</script>
 
 <!-- build:js(.tmp) index.js -->
 <script src="jspm_packages/system.js"></script>
-<script src="app/vendor/esriSystem.js"></script>
-
-<script>
-  // array of Esri module names to load and then register with SystemJS
-  esriSystem.register([
-    'esri/Graphic',
-    'esri/Map',
-    'esri/geometry/Point',
-    'esri/geometry/support/webMercatorUtils',
-    'esri/layers/FeatureLayer',
-    'esri/symbols/SimpleMarkerSymbol',
-    'esri/views/MapView'
-  ]);
-</script>
-
 <script src="jspm.browser.js"></script>
 <script src="jspm.config.js"></script>
 
