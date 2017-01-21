@@ -18,7 +18,7 @@ function other() {
   const fileFilter = filter(file => file.stat.isFile());
   const jsonFilter = path => {
     // exclude manifest.json; used for PWA support
-    if (path.extname === '.json' && path.basename !== 'manifest.json') {
+    if (path.extname === '.json' && path.basename !== 'manifest') {
       path.dirname = `${conf.paths.src}/${path.dirname}`;
     }
   };

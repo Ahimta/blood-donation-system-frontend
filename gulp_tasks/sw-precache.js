@@ -47,8 +47,8 @@ function writeServiceWorkerFile(rootDir, handleFetch, callback) {
       rootDir + '/*.html',
       rootDir + '/*.ico',
       rootDir + '/*.js',
-      rootDir + 'app/images/*.png',
-      rootDir + 'app/vendor/*.js'
+      rootDir + '/app/images/*.png',
+      rootDir + '/app/vendor/*.js'
     ],
     stripPrefix: rootDir + '/',
     // verbose defaults to false, but for the purposes of this demo, log more.
