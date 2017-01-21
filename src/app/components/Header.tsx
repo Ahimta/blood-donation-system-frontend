@@ -24,16 +24,19 @@ export default class Header extends React.Component<IProps, IState> {
                 Blood Donation System
             </MenuItem>
               <MenuItem divider />
-              <MenuItem href='https://ahimta.github.io/fuel-consumption-calculator/' rel='noopener' target='_blank'>
+              <MenuItem className='text-right' href='https://ahimta.github.io/fuel-consumption-calculator/'
+                rel='noopener' target='_blank'>
                 أسعار البنزين و المياه و الكهرباء
             </MenuItem>
-              <MenuItem href='http://ahimta.github.io/saudi-radios' rel='noopener' target='_blank'>
+              <MenuItem className='text-right' href='http://ahimta.github.io/saudi-radios' rel='noopener'
+                target='_blank'>
                 الإذاعات السعودية
             </MenuItem>
-              <MenuItem href='https://donation-web-pla-1479993243743.firebaseapp.com/' rel='noopener' target='_blank'>
+              <MenuItem className='text-right' href='https://donation-web-pla-1479993243743.firebaseapp.com/'
+                rel='noopener' target='_blank'>
                 منصة التبرعات
             </MenuItem>
-              <MenuItem href='https://ahimta.github.io/bagi/' rel='noopener' target='_blank'>
+              <MenuItem className='text-right' href='https://ahimta.github.io/bagi/' rel='noopener' target='_blank'>
                 باقي
             </MenuItem>
             </NavDropdown>
