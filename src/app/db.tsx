@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 
 import IDonation from './types/IDonation';
 
-const socket = io((window.location.hostname === 'localhost') ? 'http://localhost:4000/' : '/');
+const socket = io();
 let cachedLocation = {};
 
 socket.on('connect', () => {
